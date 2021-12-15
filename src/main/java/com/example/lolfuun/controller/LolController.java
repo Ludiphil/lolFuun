@@ -3,8 +3,10 @@ package com.example.lolfuun.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import com.example.lolfuun.model.Lol;
+import com.example.lolfuun.payload.LolPost;
 import com.example.lolfuun.repository.LolFuunRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,11 +46,11 @@ public class LolController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Lol> createLol(@RequestBody Lol lol){
+    public ResponseEntity<Lol> createLol(@RequestBody LolPost lol1){
         try
         {
-            Lol _lol = lolRepository.save(new Lol(lol.getIdUser(), lol.getIdPost()));
-            return new ResponseEntity<>(_lol, HttpStatus.CREATED);
+            Lol lol = lolRepository.save(new Lol(lol1.getIdUser(),lol1.getIdPost()));
+            return new ResponseEntity<>(lol, HttpStatus.CREATED);
         }
         catch(Exception e)
         {

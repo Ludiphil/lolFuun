@@ -39,6 +39,10 @@ public class Lol {
         return idUser;
     }
 
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
     public void setIdPost(int idPost) {
         this.idPost = idPost;
     }
@@ -50,16 +54,5 @@ public class Lol {
     public Lol(int idUser,int idPost) {
         this.idUser = idUser;
         this.idPost= idPost;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Lol{" +
-                "id=" + id +
-                ", idUser=" + idUser +
-                ", idPost=" + idPost +
-                ", dateLol=" + dateLol +
-                '}';
     }
 }
