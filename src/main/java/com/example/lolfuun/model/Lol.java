@@ -13,14 +13,14 @@ public class Lol {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
 
-    @Column(name = "idUser")
+    @Column(name = "id_user")
     private int idUser;
 
-    @Column(name = "idPost")
+    @Column(name = "id_post")
     private int idPost;
 
     @CreationTimestamp
-    @Column(name = "dateLol")
+    @Column(name = "date_lol")
     private Timestamp dateLol;
 
     public int getIdPost() {

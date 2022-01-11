@@ -41,7 +41,6 @@ public class LolController {
         }catch (Exception e){
             System.out.println(e);
         }
-
         return lols;
     }
 
@@ -60,15 +59,14 @@ public class LolController {
     }
 
     @PutMapping("/{idLol},{idPost}")
-    public ResponseEntity<Lol> updateLol(@PathVariable("idLol") long idLol,@PathVariable("idPost") long idPost, @RequestBody Lol lol)
+    public ResponseEntity<Lol> updateLol(@PathVariable("idLol") long idLol,@PathVariable("idPost") long idPost)
     {
         Optional<Lol> lolData = lolRepository.findById(idLol);
 
         if(lolData.isPresent())
         {
             Lol lol_ = lolData.get();
-            int temp=0;
-            lol.setIdPost(temp);
+            lol_.setIdPost((int) idPost);
             return new ResponseEntity<>(lolRepository.save(lol_), HttpStatus.OK);
         }
         else
